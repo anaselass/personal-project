@@ -1,4 +1,12 @@
 export const fadeIn = (direction, delay) => {
+  // تحقق من حجم الشاشة - يعمل فقط إذا كانت أكبر من 768px (تابلت أو كمبيوتر)
+  if (typeof window !== "undefined" && window.innerWidth <= 768) {
+    return {
+      hidden: {},
+      show: {},
+    };
+  }
+
   return {
     hidden: {
       y: direction === "up" ? 40 : direction === "down" ? -40 : 0,
